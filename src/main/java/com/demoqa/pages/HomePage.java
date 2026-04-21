@@ -11,12 +11,18 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    @FindBy(css="a[href='/books']")
+    @FindBy(css = "a[href='/books']")
     WebElement bookStore;
+
     public SidePanel getBookStore() {
         clickWithJs(bookStore);
         return new SidePanel(driver);
     }
 
-
+    @FindBy(css = "a[href='/alertsWindows']")
+    WebElement alert;
+    public SidePanel getAlertsFrameWindows() {
+        clickWithJs(alert);
+        return new SidePanel(driver)
+    }
 }

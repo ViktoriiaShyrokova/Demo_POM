@@ -38,19 +38,14 @@ public abstract class BasePage {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
 
-//    public void clickWithJs(WebElement element, int x, int y) {
-//        scrollWithJs(x, y);
-//        click(element);
-//    }
-
-public void clickWithJs(WebElement element) {
-    wait.until(ExpectedConditions.visibilityOf(element));
-    ((JavascriptExecutor) driver)
-            .executeScript(
-                    "arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
-    ((JavascriptExecutor) driver)
-            .executeScript("arguments[0].click();", element);
-}
+    public void clickWithJs(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", element);
+    }
 
     public void typeWithJs(WebElement element, String text, int x, int y) {
         scrollWithJs(x, y);
