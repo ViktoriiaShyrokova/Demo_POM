@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "userName-value")
     WebElement userNameValue;
     public LoginPage verifyUserName(String userName) {
-        Assertions.assertTrue(userNameValue.getText().contains(userName));
+        Assertions.assertTrue(isContainsText(userNameValue, userName));
         return this;
     }
 }

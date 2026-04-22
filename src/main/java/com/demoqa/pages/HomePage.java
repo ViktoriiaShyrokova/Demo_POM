@@ -12,17 +12,17 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(css = "a[href='/books']")
-    WebElement bookStore;
+    WebElement books;
 
     public SidePanel getBookStore() {
-        clickWithJs(bookStore);
+        clickWithJs(books);
         return new SidePanel(driver);
     }
 
     @FindBy(css = "a[href='/alertsWindows']")
-    WebElement alert;
+    WebElement alertsWindows;
     public SidePanel getAlertsFrameWindows() {
-        clickWithJs(alert);
-        return new SidePanel(driver)
+        clickWithJs(alertsWindows);
+        return new SidePanel(driver);
     }
 }

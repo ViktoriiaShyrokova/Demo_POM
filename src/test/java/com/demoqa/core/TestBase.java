@@ -1,6 +1,5 @@
 package com.demoqa.core;
 
-import jdk.jfr.Enabled;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +21,6 @@ public class TestBase {
     }
 
     @AfterEach
-    @Disabled("Tests are not finished yet")
     public void tearDown(){
         if(driver != null) driver.quit();
     }

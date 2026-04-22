@@ -1,8 +1,7 @@
 package com.demoqa.core;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.jspecify.annotations.NonNull;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,11 +12,11 @@ public abstract class BasePage {
 
     protected WebDriver driver;
     public static JavascriptExecutor js;
-    public WebDriverWait wait;
+    //public WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
         js = (JavascriptExecutor) driver;
     }
@@ -39,7 +38,7 @@ public abstract class BasePage {
     }
 
     public void clickWithJs(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
+        getWait(5).until(ExpectedConditions.visibilityOf(element));
         ((JavascriptExecutor) driver)
                 .executeScript(
                         "arguments[0].scrollIntoView({block:'center', inline:'nearest'});", element);
@@ -52,4 +51,26 @@ public abstract class BasePage {
         type(element, text);
     }
 
+    public boolean isAlertPresent(int time) {
+        try {
+            Alert alert = getWait(time)
+                    .until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public WebDriverWait getWait(int time) {
+        return new WebDriverWait(driver, Duration.ofSeconds(time));
+    }
+
+    public boolean isContainsText(WebElement webElement, String text) {
+        return webElement.getText().contains(text);
+    }
+
+    public boolean shouldHaveText(WebElement element, String text, int time){
+        return getWait(time).until(ExpectedConditions.textToBePresentInElement(element,text));
+    }
 }
