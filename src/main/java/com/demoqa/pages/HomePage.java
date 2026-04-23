@@ -13,16 +13,23 @@ public class HomePage extends BasePage {
 
     @FindBy(css = "a[href='/books']")
     WebElement books;
+    @FindBy(css = "a[href='/alertsWindows']")
+    WebElement alertsWindows;
+    @FindBy(css = "a[href='/forms']")
+    WebElement forms;
 
     public SidePanel getBookStore() {
         clickWithJs(books);
         return new SidePanel(driver);
     }
 
-    @FindBy(css = "a[href='/alertsWindows']")
-    WebElement alertsWindows;
     public SidePanel getAlertsFrameWindows() {
         clickWithJs(alertsWindows);
+        return new SidePanel(driver);
+    }
+
+    public SidePanel getForms() {
+        clickWithJs(forms);
         return new SidePanel(driver);
     }
 }

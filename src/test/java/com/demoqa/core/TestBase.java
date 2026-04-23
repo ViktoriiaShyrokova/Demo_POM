@@ -20,8 +20,8 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
-    @AfterEach
-    public void tearDown(){
-        if(driver != null) driver.quit();
-    }
+//    @AfterEach
+//    public void tearDown(){
+//        if(driver != null) driver.quit();
+//    }
 }
