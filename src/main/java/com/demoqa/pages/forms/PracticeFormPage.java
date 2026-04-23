@@ -1,6 +1,7 @@
 package com.demoqa.pages.forms;
 
 import com.demoqa.core.BasePage;
+import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -53,6 +54,22 @@ public class PracticeFormPage extends BasePage {
     @FindBy(id = "example-modal-sizes-title-lg")
     WebElement resultTitle;
 
+    private WebElement getHobbyElement(String hobby) {
+        return driver.findElement(By.xpath("//label[text()='" + hobby + "']"));
+    }
+    private WebElement getDayElement(String day) {
+        return driver.findElement(By.xpath("//div[.='" + day + "']"));
+    }
+    private WebElement getMonthElement(int month) {
+        return driver.findElement(By.cssSelector(".react-datepicker__month-select>option[value='" + month + "']"));
+    }
+    private WebElement getYearElement(String year) {
+        return driver.findElement(By.cssSelector(".react-datepicker__year-select>option[value='" + year + "']"));
+    }
+    private WebElement getGenderElement(String gender) {
+        return driver.findElement(By.xpath("//label[text()='" + gender + "']"));
+    }
+
     public PracticeFormPage enterPersonalData(String name, String surName, String email, String phone) {
         type(firstName, name);
         type(lastName, surName);
@@ -62,9 +79,7 @@ public class PracticeFormPage extends BasePage {
     }
 
     public PracticeFormPage selectGender(String gender) {
-        if (gender.equals("Male")) click(radioButtons.get(0));
-        else if (gender.equals("Female")) click(radioButtons.get(1));
-        else if (gender.equals("Other")) click(radioButtons.get(2));
+        click(getGenderElement(gender));
         return this;
     }
 
@@ -88,12 +103,12 @@ public class PracticeFormPage extends BasePage {
         String year = split[2];
         click(dateInput);
         click(yearSelect);
-        WebElement yearElement = driver.findElement(By.cssSelector(".react-datepicker__year-select>option[value='" + year + "']"));
-        WebElement monthElement = driver.findElement(By.cssSelector(".react-datepicker__month-select>option[value='" + month + "']"));
+        WebElement yearElement = getYearElement(year);
+        WebElement monthElement = getMonthElement(month);
         click(yearElement);
         click(monthSelect);
         click(monthElement);
-        WebElement dayElement = driver.findElement(By.xpath("//div[.='" + day + "']"));
+        WebElement dayElement = getDayElement(day);
         click(dayElement);
         return this;
     }
@@ -121,16 +136,7 @@ public class PracticeFormPage extends BasePage {
 
     public PracticeFormPage selectHobby(String[] hobbies) {
         for (String hobby : hobbies) {
-            if (hobby.equals("Sports")) {
-                click(hobbiesCheckboxes.get(0));
-            }
-            if (hobby.equals("Reading")) {
-                click(hobbiesCheckboxes.get(1));
-            }
-            if (hobby.equals("Music")) {
-                click(hobbiesCheckboxes.get(2));
-            }
-
+            click(getHobbyElement(hobby));
         }
         return this;
     }
