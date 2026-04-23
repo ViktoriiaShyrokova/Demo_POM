@@ -2,15 +2,10 @@ package com.demoqa.pages.forms;
 
 import com.demoqa.core.BasePage;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class PracticeFormPage extends BasePage {
 
@@ -26,8 +21,8 @@ public class PracticeFormPage extends BasePage {
     WebElement userEmail;
     @FindBy(id = "userNumber")
     WebElement userNumber;
-    //    @FindBy(css = "label[for='gender-radio-1']")
-//    WebElement radioMale;
+    @FindBy(id = "gender-radio-1")
+    WebElement radioMale;
     @FindBy(xpath = "//label[contains(@for,'gender-radio')]")
     List<WebElement> radioButtons;
     @FindBy(id = "dateOfBirthInput")
@@ -67,10 +62,9 @@ public class PracticeFormPage extends BasePage {
     }
 
     public PracticeFormPage selectGender(String gender) {
-        //if(gender.equals("Male")) click(radioMale);
         if (gender.equals("Male")) click(radioButtons.get(0));
         else if (gender.equals("Female")) click(radioButtons.get(1));
-        else click(radioButtons.get(2));
+        else if (gender.equals("Other")) click(radioButtons.get(2));
         return this;
     }
 
@@ -164,8 +158,18 @@ public class PracticeFormPage extends BasePage {
     }
 
     public PracticeFormPage verifySuccessRegistration(String title) {
-        Assertions.assertTrue(shouldHaveText(resultTitle,title,10));
+        Assertions.assertTrue(shouldHaveText(resultTitle, title, 10));
         return this;
 
     }
+
+    public boolean verifyValidation(String field) {
+        boolean isValid;
+        if (field.equals("firstName")) isValid = isFieldInFormValid(firstName);
+        else if (field.equals("lastName")) isValid = isFieldInFormValid(lastName);
+        else if (field.equals("phone")) isValid = isFieldInFormValid(userNumber);
+        else isValid = isFieldInFormValid(radioMale);
+        return isValid;
+    }
+
 }

@@ -73,4 +73,9 @@ public abstract class BasePage {
     public boolean shouldHaveText(WebElement element, String text, int time){
         return getWait(time).until(ExpectedConditions.textToBePresentInElement(element,text));
     }
+
+    public boolean isFieldInFormValid(WebElement element) {
+        return  (Boolean) ((JavascriptExecutor) driver)
+                .executeScript("return arguments[0].checkValidity();", element);
+    }
 }
