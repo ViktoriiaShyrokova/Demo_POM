@@ -17,6 +17,8 @@ public class HomePage extends BasePage {
     WebElement alertsWindows;
     @FindBy(css = "a[href='/forms']")
     WebElement forms;
+    @FindBy(css = "a[href='/elements']")
+    WebElement elements;
 
     public SidePanel getBookStore() {
         clickWithJs(books);
@@ -30,6 +32,11 @@ public class HomePage extends BasePage {
 
     public SidePanel getForms() {
         clickWithJs(forms);
+        return new SidePanel(driver);
+    }
+
+    public SidePanel getElements() {
+        clickWithJs(elements);
         return new SidePanel(driver);
     }
 }

@@ -6,6 +6,7 @@ import com.demoqa.pages.SidePanel;
 import com.demoqa.pages.forms.PracticeFormPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -45,6 +46,7 @@ public class PracticeFormTest extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     public void createAccountPositiveTest() {
         formPage.enterPersonalData("Jon", "Morgan", "morgan@gmail.com", "1234567890")
                 .selectGender("Male")

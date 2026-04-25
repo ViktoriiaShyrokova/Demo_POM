@@ -5,10 +5,13 @@ import com.demoqa.pages.alertsFrameWindows.AlertsPage;
 import com.demoqa.pages.alertsFrameWindows.IframesPage;
 import com.demoqa.pages.alertsFrameWindows.WindowsPage;
 import com.demoqa.pages.bookStore.LoginPage;
+import com.demoqa.pages.elements.BrokenLinksImagesPages;
 import com.demoqa.pages.forms.PracticeFormPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.Iterator;
 
 public class SidePanel extends BasePage {
 
@@ -26,6 +29,8 @@ public class SidePanel extends BasePage {
     WebElement frames;
     @FindBy(css = "a[href$='/automation-practice-form']")
     WebElement practiceForm;
+    @FindBy(css = "a[href$='/broken']")
+    WebElement brokenLinksImages;
 
     public LoginPage getLogin() {
         clickWithJs(login);
@@ -53,5 +58,10 @@ public class SidePanel extends BasePage {
     public PracticeFormPage getPracticeFrom() {
         clickWithJs(practiceForm);
         return new PracticeFormPage(driver);
+    }
+
+    public BrokenLinksImagesPages getBrokenLinksImages() {
+        clickWithJs(brokenLinksImages);
+        return new BrokenLinksImagesPages(driver);
     }
 }

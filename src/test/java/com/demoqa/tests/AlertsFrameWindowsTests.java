@@ -7,6 +7,7 @@ import com.demoqa.pages.alertsFrameWindows.AlertsPage;
 import com.demoqa.pages.alertsFrameWindows.IframesPage;
 import com.demoqa.pages.alertsFrameWindows.WindowsPage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -26,6 +27,7 @@ public class AlertsFrameWindowsTests extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     public void waitAlertTest(){
         sidePanel.getAlerts();
         alerts.verifyAlertWithTimer();
@@ -49,6 +51,7 @@ public class AlertsFrameWindowsTests extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     public void newTabTest(){
         windowsPage = sidePanel.getBrowserWindows();
 
@@ -58,6 +61,7 @@ public class AlertsFrameWindowsTests extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     public void iframeByIdTest(){
         sidePanel.getFrames();
         iframes.switchIframeById()

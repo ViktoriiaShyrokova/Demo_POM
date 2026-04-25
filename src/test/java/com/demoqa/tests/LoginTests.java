@@ -5,6 +5,7 @@ import com.demoqa.pages.HomePage;
 import com.demoqa.pages.SidePanel;
 import com.demoqa.pages.bookStore.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class LoginTests extends TestBase {
@@ -16,6 +17,7 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     public void loginPositivePage(){
         new LoginPage(driver).enterUserData("vikki","Password1!")
                 .clickOnLoginButton()
