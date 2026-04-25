@@ -1,0 +1,11 @@
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/core/BasePage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/HomePage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/SidePanel.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/alertsFrameWindows/AlertsPage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/alertsFrameWindows/IframesPage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/alertsFrameWindows/WindowsPage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/bookStore/LoginPage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/elements/BrokenLinksImagesPages.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/pages/forms/PracticeFormPage.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/utils/MyDataProviders.java
+/Users/arturvikki/QA_Projects/Demo_POM/src/main/java/com/demoqa/utils/ScreenshotUtil.java

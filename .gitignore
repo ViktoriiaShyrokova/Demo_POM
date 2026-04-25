@@ -1,4 +1,4 @@
-target/
+
 
 ### IntelliJ IDEA ###
 *.idea
@@ -6,6 +6,6 @@ target/
 *.iml
 *.ipr
 
-
+*.log
 ### Mac OS ###
 .DS_Store

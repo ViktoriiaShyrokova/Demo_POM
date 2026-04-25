@@ -1,0 +1,11 @@
+com/demoqa/pages/bookStore/LoginPage.class
+com/demoqa/pages/alertsFrameWindows/IframesPage.class
+com/demoqa/pages/elements/BrokenLinksImagesPages.class
+com/demoqa/pages/SidePanel.class
+com/demoqa/core/BasePage.class
+com/demoqa/pages/forms/PracticeFormPage.class
+com/demoqa/utils/ScreenshotUtil.class
+com/demoqa/pages/HomePage.class
+com/demoqa/pages/alertsFrameWindows/AlertsPage.class
+com/demoqa/utils/MyDataProviders.class
+com/demoqa/pages/alertsFrameWindows/WindowsPage.class
